@@ -17,7 +17,7 @@
                 <p id="task">Task </p>
                 <p id="lists">Lists</p>
             </div>
-            <div class="add-list" onclick="toggle()">
+            <div class="add-list" onclick="toggle1()">
                 <div class="icon">
                     <i class="fas fa-plus-circle"></i>
                 </div>
@@ -27,34 +27,24 @@
             </div>
         </div>
         <div class="card-section">
-            <div class="card">
-                <!-- paris title -->
-                <div class="card-title">
-                    <p>Trip to Paris</p>
-                    <hr>
-                </div>
-                <!-- completed strike through -->
-                <div class="completed">
-                    <p>Completed Task</p>
-                </div>
-                <!-- pending -->
-                <div class="pending">
-                    <div class="icon2">
-                        <i class="far fa-square"></i>
-                    </div>
-                    <div class="text">
-                        <p>Pending Task</p>
-                    </div>
-                </div>
-            </div>  
+       
+        </div>
+
     </div>
-</div>
-    <div class="pop">
-            <p class="pop-text">Add new list</p>
-            <input type="text" id="inputfield" placeholder="Add New List" >
+    <div class="pop1">
+        <p class="pop-text">Add New List</p>
+        <input type="text" id="inputfield1" placeholder="Add New List">
         <div class="options">
             <button class="add" onclick="addToDo()">Add</button>
-            <button class="close" onclick="toggle()">Close</button>
+            <button class="close" onclick="toggle1()">Close</button>
+        </div>
+    </div>
+    <div class="pop2">
+        <p class="pop-text">Add New Item</p>
+        <input type="text" id="inputfield2" placeholder="Add New List">
+        <div class="options">
+            <button class="add" onclick="addListItem(uniqueId)">Add</button>
+            <button class="close" onclick="toggle2()">Close</button>
         </div>
     </div>
     <script type="text/javascript" src="./app.js"></script>
