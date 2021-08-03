@@ -1,13 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/fc3420a326.js" crossorigin="anonymous"></script>
     <title>ToDo App</title>
 </head>
+
 <body>
-    <scipt src="app.js"></scipt>
+    <div class="container" id="blur">
+        <div class="header">
+            <div class="head-title">
+                <p id="task">Task </p>
+                <p id="lists">Lists</p>
+            </div>
+            <div class="add-list" onclick="toggle()">
+                <div class="icon">
+                    <i class="fas fa-plus-circle"></i>
+                </div>
+                <div class="add">
+                    <p>Add List</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-section">
+            <div class="card">
+                <!-- paris title -->
+                <div class="card-title">
+                    <p>Trip to Paris</p>
+                    <hr>
+                </div>
+                <!-- completed strike through -->
+                <div class="completed">
+                    <p>Completed Task</p>
+                </div>
+                <!-- pending -->
+                <div class="pending">
+                    <div class="icon2">
+                        <i class="far fa-square"></i>
+                    </div>
+                    <div class="text">
+                        <p>Pending Task</p>
+                    </div>
+                </div>
+            </div>  
+    </div>
+</div>
+    <div class="pop">
+            <p class="pop-text">Add new list</p>
+            <input type="text" id="inputfield" placeholder="Add New List" >
+        <div class="options">
+            <button class="add" onclick="addToDo()">Add</button>
+            <button class="close" onclick="toggle()">Close</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="./app.js"></script>
 </body>
+
 </html>
