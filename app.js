@@ -28,6 +28,7 @@ function addToDoCard() {
     let cardSection = document.querySelector(".card-section");
     if (inputItem.value===""){
         window.alert("Please Enter A Title");
+        return;
     }else{
      itemObject = {
         id: Date.now(),
@@ -35,7 +36,7 @@ function addToDoCard() {
     };
     todoList.push(itemObject);
     toggle1();
-    }
+    
     const cardContent = `<div class="card" id="${itemObject.id}">
     <div class="card-title" onclick="enlargeCard(event)">
         <p class="card-title-p" id="cardtitle">${itemObject.title}</p>
@@ -53,6 +54,7 @@ function addToDoCard() {
 </div>
 </div>`
     cardSection.innerHTML += cardContent; 
+}
 }
 
 //to focus a card when clicked
@@ -112,13 +114,13 @@ function addListItem(listItem) {
     let listItemObject;
     if (inputListItem.value===""){
         window.alert("Please Enter A List");
+        return;
     }else{
     listItemObject = {
         id: count++,
         list: inputListItem.value
     }
     toggle2();
-}
     const listContent = `<li class="list-style" id="${listItemObject.id}">
                             <p class="list-items">${listItemObject.list}</p>
                             <div class="mark-done">
@@ -126,7 +128,7 @@ function addListItem(listItem) {
                             </div>
                         </li>`;
     listItem.innerHTML += listContent;
-
+    }
 }
 
 //markdone function for each entered lists
