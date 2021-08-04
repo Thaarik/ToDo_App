@@ -1,16 +1,22 @@
 let todoList = [];
 let addList = document.querySelector(".add-list");
 let close = document.querySelector(".close");
+let itemObject;
+let inputItem = document.querySelector("#inputfield1");
+let inputListItem = document.querySelector("#inputfield2");
 let list;
 let count = 0;
 
+//functionality and blur activity for pop box(new card)
 function toggle1() {
     let blur = document.querySelector("#blur");
     blur.classList.toggle('active');
     let popup = document.querySelector(".pop1");
     popup.classList.toggle('active');
+    
 }
 
+//functionality and blur activity for pop box(new list inside the card)
 function toggle2() {
     let blur = document.querySelector("#blur");
     blur.classList.toggle('active');
@@ -18,11 +24,9 @@ function toggle2() {
     popup.classList.toggle('active');
 }
 
-let itemObject;
-function addToDo() {
-    let inputItem = document.querySelector("#inputfield1");
+//To add new card
+function addToDoCard() {
     let cardSection = document.querySelector(".card-section");
-    
     if (inputItem.value===""){
         window.alert("Please Enter A Title");
     }else{
@@ -44,16 +48,15 @@ function addToDo() {
         </ul>
     </div>
     <div class="cardbutton">
-    <div class="add-item icon" onclick="toggle2(); addRequiredList(event)"><i class="fas fa-plus-circle"></i></div>
+    <div class="add-item icon" onclick="toggle2(); cardSelection(event)"><i class="fas fa-plus-circle"></i></div>
     <div class="delete-card icon" onclick="removeCard(event)"><i class="fa fa-trash"
             aria-hidden="true"></i></div>
 </div>
 </div>`
-    cardSection.innerHTML += cardContent;
-    console.log(cardSection);
+    cardSection.innerHTML += cardContent; 
 }
 
-
+//to focus a card when clicked
 function enlargeCard(event){
     let cards = document.querySelectorAll(".card");
     let backbtn = document.querySelector(".backBtn");
@@ -66,9 +69,7 @@ function enlargeCard(event){
     addlist.classList.add("inactive");
     cards.forEach(card=>{
         if(!(event.path[1].getAttribute("id")===card.getAttribute("id") ||event.path[2].getAttribute("id")===card.getAttribute("id"))){
-            card.style.display="none";
-            console.log(card.childNodes[1].textContent);
-            
+            card.style.display="none";    
         }else{
             let cardtitle=card.childNodes[1].textContent;
             cardhead.innerHTML=`<p class="card-title">${cardtitle}</p>`;
@@ -76,8 +77,8 @@ function enlargeCard(event){
     })
 }
 
+//back function when a card is focused
 function backFunction(){
- 
     let cards = document.querySelectorAll(".card");
     let backbtn = document.querySelector(".backBtn");
     let cardhead = document.querySelector(".card-heading");
@@ -94,8 +95,8 @@ function backFunction(){
     cardhead.innerHTML="";
 }
 
-
-function addRequiredList(event) {
+//to pick correct card id when a addlist button is clicked inside the card
+function cardSelection(event) {
     let cardId = event.path[3].getAttribute("id");
     let cards = document.querySelectorAll(".card");
 
@@ -106,8 +107,8 @@ function addRequiredList(event) {
     })
 }
 
+//to add the list inside the card with the chosen card id from previous function(addRequiredList(event))
 function addListItem(listItem) {
-    let inputListItem = document.querySelector("#inputfield2");
     let listItemObject;
     if (inputListItem.value===""){
         window.alert("Please Enter A List");
@@ -128,23 +129,22 @@ function addListItem(listItem) {
 
 }
 
+//markdone function for each entered lists
 function markDone(event){
-
     let listItem = event.path[2].getAttribute("id");
     let listItems = document.querySelectorAll(".list-style");
     listItems.forEach(list=>{
         if(list.getAttribute('id')===listItem){
             list.childNodes[3].style.display="none";
-            list.style.color="#E74C3C";
+            list.style.color="red";
             list.style.textDecoration="line-through";
         }
     })
    
 }
 
+//deletecard button function
 function removeCard(event) {
     let removeId = event.path[3].getAttribute("id");
     document.getElementById(removeId).remove();
-
-
 }

@@ -9,11 +9,13 @@
 
     <script src="https://kit.fontawesome.com/fc3420a326.js" crossorigin="anonymous"></script>
     <title>ToDo App</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
+    <!-- Main Container -->
     <div class="container" id="blur">
+        <!-- Main title -->
         <div class="header">
             <div class="head-title">
                 <p id="task">Task </p>
@@ -28,7 +30,7 @@
                 </div>
             </div>
             <div class="card-heading">
-                
+
             </div>
             <div class="add-list" onclick="toggle1()">
                 <div class="icon">
@@ -40,21 +42,23 @@
             </div>
         </div>
         <div class="card-section">
-
         </div>
-
     </div>
+
+    <!-- Pop box for new card -->
     <div class="pop1">
         <p class="pop-text">Add New List</p>
-        <input type="text" id="inputfield1" placeholder="Add New List">
+        <input type="text" id="inputfield1" onfocus="this.value=''" placeholder="Add New List">
         <div class="options">
-            <button class="add" onclick="addToDo()">Add</button>
+            <button class="add" onclick="addToDoCard()">Add</button>
             <button class="close" onclick="toggle1()">Close</button>
         </div>
     </div>
+
+    <!-- Pop box for new list inside the card -->
     <div class="pop2">
         <p class="pop-text">Add New Item</p>
-        <input type="text" id="inputfield2" placeholder="Add New List">
+        <input type="text" id="inputfield2" onfocus="this.value=''" placeholder="Add New List">
         <div class="options">
             <button class="add" onclick="addListItem(list)">Add</button>
             <button class="close" onclick="toggle2()">Close</button>

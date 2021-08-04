@@ -17,10 +17,19 @@
 
 .head-title {
     padding: 20px;
-    /* display:none; */
+    font-size: 50px;
+}
+#task {
+    display: inline-block;
+    font-weight: bolder;
+}
+
+#lists {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: lighter;
 }
 .head-title.inactive {
-   
     display:none;
 }
 .backBtn{
@@ -54,19 +63,6 @@
     visibility:visible;
     align-self: center;
     margin:0 auto;
-}
-
-#task {
-    display: inline-block;
-    font-size: 50px;
-    font-weight: bolder;
-}
-
-#lists {
-    display: inline-block;
-    font-size: 50px;
-    margin-left: 10px;
-    font-weight: lighter;
 }
 
 .add-list {
@@ -271,6 +267,7 @@
 }
 .list-container {
     min-height: 250px;
+    padding-right:15px;
 }
 
 .list-style {
@@ -297,3 +294,10 @@
     color: #fff;
     cursor: pointer;
 }
+/* 
+@media only screen and (min-width: 768px) {
+
+    .head-title {
+        font-size: 20px;
+    }
+} */
