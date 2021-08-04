@@ -12,10 +12,48 @@
 .header {
     display: flex;
     justify-content: space-between;
+    height:200px;
 }
 
 .head-title {
     padding: 20px;
+    /* display:none; */
+}
+.head-title.inactive {
+   
+    display:none;
+}
+.backBtn{
+    display:none;
+  
+}
+.backBtn.active {
+   width: 200px;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   font-size: 40px;
+   cursor: pointer;
+}
+
+.add-list:active {
+    font-size: 39px;
+    transition: 0.2s;
+    
+}
+.iconBack {
+    color:rgb(37, 37, 248);
+    margin-right: 10px;
+}
+.card-heading{
+    visibility: hidden;
+}
+.header .card-heading.active{
+    font-size: 40px;
+    font-weight: 600;
+    visibility:visible;
+    align-self: center;
+    margin:0 auto;
 }
 
 #task {
@@ -44,7 +82,9 @@
     font-size: 39px;
     transition: 0.2s;
 }
-
+.add-list.inactive{
+    visibility: hidden;
+}
 .icon {
     color: #E74C3C;
     margin-right: 10px;
@@ -61,26 +101,31 @@
 }
 
 .card {
-    /* visibility: hidden; */
     padding: 10px;
     position: relative;
     min-height: 400px;
     min-width: 230px;
-    border: 1px solid#E74C3C;
-    box-shadow: 4px 4px 10px rgb(172, 170, 170);
+    border: 0.5px solid#E74C3C;
+    box-shadow: 0px 0px 10px rgb(172, 170, 170);
+
     border-radius: 12px;
     margin: 30px;
     line-height: 30px;
 }
 
-/* .card.active{
-    visibility: visible;
-} */
+.card:hover{
+    box-shadow: 4px 4px 15px rgb(172, 170, 170);
+    transition: box-shadow 0.5s ease-out;
+}
+.card-title{
+    cursor:pointer;
+}
 .card-title p {
     font-size: 30px;
     text-align: center;
     font-weight: lighter;
     color: #E74C3C;
+   
 }
 
 .completed p {
@@ -130,8 +175,6 @@
 
 .pop1.active {
     visibility: visible;
-    /* transition: transform 1s;
-    transform: translate(0,-20%); */
 }
 
 .pop2 {
@@ -155,8 +198,7 @@
 
 .pop2.active {
     visibility: visible;
-    /* transition: transform 1s;
-    transform: translate(0,-20%); */
+
 }
 
 .container#blur.active {
@@ -212,13 +254,21 @@
     width: 100%;
     height: 50px;
     margin-bottom: 10px;
+}
+.cardbutton .add-item{
+    padding:5px;
     cursor: pointer;
 }
 
 .cardbutton .delete-card {
     color: rgb(37, 37, 248);
+    padding:5px;
+    cursor: pointer;
 }
-
+.cardbutton .add-item:hover,.cardbutton .delete-card:hover{
+    font-size: 31px;
+    transition: 0.8s;
+}
 .list-container {
     min-height: 250px;
 }

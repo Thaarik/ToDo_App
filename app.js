@@ -18,11 +18,11 @@ function toggle2() {
     popup.classList.toggle('active');
 }
 
-
+let itemObject;
 function addToDo() {
     let inputItem = document.querySelector("#inputfield1");
     let cardSection = document.querySelector(".card-section");
-    let itemObject
+    
     if (inputItem.value===""){
         window.alert("Please Enter A Title");
     }else{
@@ -33,11 +33,9 @@ function addToDo() {
     todoList.push(itemObject);
     toggle1();
     }
-    
-   
     const cardContent = `<div class="card" id="${itemObject.id}">
-    <div class="card-title">
-        <p class="card-title-p">${itemObject.title}</p>
+    <div class="card-title" onclick="enlargeCard(event)">
+        <p class="card-title-p" id="cardtitle">${itemObject.title}</p>
         <hr>
     </div>
 
@@ -53,8 +51,49 @@ function addToDo() {
 </div>`
     cardSection.innerHTML += cardContent;
     console.log(cardSection);
-
 }
+
+
+function enlargeCard(event){
+    let cards = document.querySelectorAll(".card");
+    let backbtn = document.querySelector(".backBtn");
+    let cardhead = document.querySelector(".card-heading");
+    let headtitle = document.querySelector(".head-title");
+    let addlist = document.querySelector(".add-list");
+    headtitle.classList.add("inactive");
+    backbtn.classList.add("active");
+    cardhead.classList.add("active");
+    addlist.classList.add("inactive");
+    cards.forEach(card=>{
+        if(!(event.path[1].getAttribute("id")===card.getAttribute("id") ||event.path[2].getAttribute("id")===card.getAttribute("id"))){
+            card.style.display="none";
+            console.log(card.childNodes[1].textContent);
+            
+        }else{
+            let cardtitle=card.childNodes[1].textContent;
+            cardhead.innerHTML=`<p class="card-title">${cardtitle}</p>`;
+        }
+    })
+}
+
+function backFunction(){
+ 
+    let cards = document.querySelectorAll(".card");
+    let backbtn = document.querySelector(".backBtn");
+    let cardhead = document.querySelector(".card-heading");
+    let headtitle = document.querySelector(".head-title");
+    let addlist = document.querySelector(".add-list");
+    headtitle.classList.remove("inactive");
+    backbtn.classList.remove("active");
+    cardhead.classList.remove("active");
+    addlist.classList.remove("inactive");
+    cards.forEach(card=>{
+            card.style.display="initial";
+    })
+    cardhead.classList.remove("active");
+    cardhead.innerHTML="";
+}
+
 
 function addRequiredList(event) {
     let cardId = event.path[3].getAttribute("id");
