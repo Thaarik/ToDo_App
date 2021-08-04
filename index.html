@@ -48,7 +48,7 @@
     <!-- Pop box for new card -->
     <div class="pop1">
         <p class="pop-text">Add New List</p>
-        <input type="text" id="inputfield1" onfocus="this.value=''" placeholder="Add New List">
+        <input type="text" id="inputfield1" onfocus="this.value=''" placeholder="Add New List" autocomplete="off">
         <div class="options">
             <button class="add" onclick="addToDoCard()">Add</button>
             <button class="close" onclick="toggle1()">Close</button>
@@ -58,7 +58,7 @@
     <!-- Pop box for new list inside the card -->
     <div class="pop2">
         <p class="pop-text">Add New Item</p>
-        <input type="text" id="inputfield2" onfocus="this.value=''" placeholder="Add New List">
+        <input type="text" id="inputfield2" onfocus="this.value=''" placeholder="Add New List" autocomplete="off">
         <div class="options">
             <button class="add" onclick="addListItem(list)">Add</button>
             <button class="close" onclick="toggle2()">Close</button>

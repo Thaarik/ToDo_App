@@ -2,8 +2,6 @@ let todoList = [];
 let addList = document.querySelector(".add-list");
 let close = document.querySelector(".close");
 let itemObject;
-let inputItem = document.querySelector("#inputfield1");
-let inputListItem = document.querySelector("#inputfield2");
 let list;
 let count = 0;
 
@@ -26,6 +24,7 @@ function toggle2() {
 
 //To add new card
 function addToDoCard() {
+    let inputItem = document.querySelector("#inputfield1");
     let cardSection = document.querySelector(".card-section");
     if (inputItem.value===""){
         window.alert("Please Enter A Title");
@@ -109,6 +108,7 @@ function cardSelection(event) {
 
 //to add the list inside the card with the chosen card id from previous function(addRequiredList(event))
 function addListItem(listItem) {
+    let inputListItem = document.querySelector("#inputfield2");
     let listItemObject;
     if (inputListItem.value===""){
         window.alert("Please Enter A List");
