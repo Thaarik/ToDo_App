@@ -28,6 +28,7 @@ function addToDoCard() {
     let cardSection = document.querySelector(".card-section");
     if (inputItem.value===""){
         window.alert("Please Enter A Title");
+        return;
     }else{
      itemObject = {
         id: Date.now(),
@@ -112,6 +113,7 @@ function addListItem(listItem) {
     let listItemObject;
     if (inputListItem.value===""){
         window.alert("Please Enter A List");
+        return;
     }else{
     listItemObject = {
         id: count++,
