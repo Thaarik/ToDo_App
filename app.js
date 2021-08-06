@@ -55,6 +55,7 @@ function addToDoCard() {
 </div>`
     cardSection.innerHTML += cardContent; 
 }
+
 }
 
 //to focus a card when clicked
@@ -68,6 +69,7 @@ function enlargeCard(event){
     backbtn.classList.add("active");
     cardhead.classList.add("active");
     addlist.classList.add("inactive");
+   
     cards.forEach(card=>{
         if(!(event.path[1].getAttribute("id")===card.getAttribute("id") ||event.path[2].getAttribute("id")===card.getAttribute("id"))){
             card.style.display="none";    
@@ -76,6 +78,7 @@ function enlargeCard(event){
             cardhead.innerHTML=`<p class="card-title">${cardtitle}</p>`;
         }
     })
+    
 }
 
 //back function when a card is focused
@@ -150,3 +153,6 @@ function removeCard(event) {
     let removeId = event.path[3].getAttribute("id");
     document.getElementById(removeId).remove();
 }
+if (window.matchMedia("(max-width: 700px)").matches) {
+
+  }
