@@ -153,6 +153,4 @@ function removeCard(event) {
     let removeId = event.path[3].getAttribute("id");
     document.getElementById(removeId).remove();
 }
-if (window.matchMedia("(max-width: 700px)").matches) {
 
-  }
