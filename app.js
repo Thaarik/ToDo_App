@@ -4,7 +4,7 @@ let close = document.querySelector(".close");
 let itemObject;
 let list;
 let count = 0;
-
+let flag = 0;
 //functionality and blur activity for pop box(new card)
 function toggle1() {
     let blur = document.querySelector("#blur");
@@ -125,9 +125,9 @@ function addListItem(listItem) {
     }
     toggle2();
     const listContent = `<li class="list-style" id="${listItemObject.id}">
-                            <p class="list-items">${listItemObject.list}</p>
+                            <p class="list-items" >${listItemObject.list}</p>
                             <div class="mark-done">
-                                <p onclick="markDone(event)">Mark Done</p>
+                                <p onclick="markDone(event)" id = "cancelButton">Mark Done</p>
                             </div>
                         </li>`;
     listItem.innerHTML += listContent;
@@ -140,13 +140,24 @@ function markDone(event){
     let listItems = document.querySelectorAll(".list-style");
     listItems.forEach(list=>{
         if(list.getAttribute('id')===listItem){
-            list.childNodes[3].style.display="none";
-            list.style.color="red";
-            list.style.textDecoration="line-through";
+            flag = 1 - flag;
+            if(flag === 1){
+              //list.childNodes[3].style.display="none";
+              list.style.color="red";
+              list.style.textDecoration="line-through";
+              document.getElementById('cancelButton').textContent = "Done";
+            }
+            else{
+                document.getElementById('cancelButton').textContent = "Mark Done";
+                list.style.color="black";
+                list.style.textDecoration = "none";  
+            }
+            
         }
     })
    
 }
+
 
 //deletecard button function
 function removeCard(event) {
