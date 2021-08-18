@@ -151,13 +151,15 @@ function markDone(event){
             if(flag === 1){
               //list.childNodes[3].style.display="none";
               list.style.color="red";
-              list.style.textDecoration="line-through";
+              list.childNodes[1].style.textDecoration="line-through";
               document.getElementById('cancelButton').textContent = "Done";
+              document.getElementsByClassName('edit-button')[0].style.pointerEvents = 'none';
             }
             else{
                 document.getElementById('cancelButton').textContent = "Mark Done";
                 list.style.color="black";
-                list.style.textDecoration = "none";  
+                list.childNodes[1].style.textDecoration = "none";
+                document.getElementsByClassName('edit-button')[0].style.pointerEvents = 'auto';  
             }
             
         }
