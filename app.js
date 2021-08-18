@@ -125,14 +125,21 @@ function addListItem(listItem) {
     }
     toggle2();
     const listContent = `<li class="list-style" id="${listItemObject.id}">
-                            <p class="list-items" >${listItemObject.list}</p>
+                            <p class="list-items" contenteditable = "true" >${listItemObject.list}</p>
                             <div class="mark-done">
                                 <p onclick="markDone(event)" id = "cancelButton">Mark Done</p>
                             </div>
+                            <div class = "edit-button" onclick = "focusInput()"> Edit </div>
                         </li>`;
     listItem.innerHTML += listContent;
     }
 }
+//Function to focus the input form
+function focusInput(){
+   document.getElementsByClassName('list-items')[0].focus();
+}
+
+
 
 //markdone function for each entered lists
 function markDone(event){
